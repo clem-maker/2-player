@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cgvlh1r7nk4em"]
+
+[ext_resource type="Shader" uid="uid://bgisemienbiob" path="res://shader/target.gdshader" id="1_1srcc"]
+[ext_resource type="Texture2D" uid="uid://cbwho3xog4pcp" path="res://pixel_art/target.png" id="2_l6fqm"]
+[ext_resource type="Script" uid="uid://dgnhomjtkwai8" path="res://scribte/target.gd" id="3_6fhri"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_20mpl"]
+shader = ExtResource("1_1srcc")
+shader_parameter/alpha_time = 1.0
+
+[node name="Target" type="Sprite2D" unique_id=419615461]
+texture_filter = 1
+material = SubResource("ShaderMaterial_20mpl")
+texture = ExtResource("2_l6fqm")
+script = ExtResource("3_6fhri")
+
+[node name="Timer" type="Timer" parent="." unique_id=1171975763]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

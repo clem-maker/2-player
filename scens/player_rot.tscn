@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://clo6wvw17ccfb"]
+
+[ext_resource type="Script" uid="uid://b645t1u408e52" path="res://scribte/player_rot.gd" id="1_5mur7"]
+[ext_resource type="Texture2D" uid="uid://b1a7ohfwxfvdo" path="res://pixel_art/player_blau.jpg" id="1_usbiq"]
+[ext_resource type="Shader" uid="uid://ke7kn175do61" path="res://shader/player_rot.gdshader" id="1_yj85c"]
+[ext_resource type="Script" uid="uid://dlpc34foaggvv" path="res://scribte/counter.gd" id="4_4qxwf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_85u3v"]
+radius = 14.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i6x6i"]
+shader = ExtResource("1_yj85c")
+
+[node name="player_rot" type="CharacterBody2D" unique_id=1054043953]
+scale = Vector2(2, 2)
+script = ExtResource("1_5mur7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2145199454]
+visible = false
+shape = SubResource("CircleShape2D_85u3v")
+
+[node name="PlayerBlau" type="Sprite2D" parent="." unique_id=1373072219]
+texture_filter = 1
+material = SubResource("ShaderMaterial_i6x6i")
+texture = ExtResource("1_usbiq")
+
+[node name="counter" type="Node2D" parent="." unique_id=455777036]
+script = ExtResource("4_4qxwf")

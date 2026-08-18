@@ -1,0 +1,30 @@
+[gd_resource type="VisualShader" format=3 uid="uid://cbd8m4b64ex37"]
+
+[sub_resource type="VisualShaderNodeStep" id="VisualShaderNodeStep_trgc5"]
+output_port_for_preview = 0
+default_input_values = [0, 0.5, 1, 0.49]
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_cwipm"]
+default_input_values = [0, 0.5, 1, 0.5, 2, 0.0]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeVectorDistance" id="VisualShaderNodeVectorDistance_emsxq"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_613s1"]
+input_name = "uv"
+
+[resource]
+mode = 1
+flags/light_only = false
+nodes/vertex/0/position = Vector2(746.6667, 133.33333)
+nodes/fragment/2/node = SubResource("VisualShaderNodeStep_trgc5")
+nodes/fragment/2/position = Vector2(-426.66666, 53.333332)
+nodes/fragment/3/node = SubResource("VisualShaderNodeVectorCompose_cwipm")
+nodes/fragment/3/position = Vector2(-880, 320)
+nodes/fragment/4/node = SubResource("VisualShaderNodeVectorDistance_emsxq")
+nodes/fragment/4/position = Vector2(-613.3333, 133.33333)
+nodes/fragment/5/node = SubResource("VisualShaderNodeInput_613s1")
+nodes/fragment/5/position = Vector2(-1040, 133.33333)
+nodes/fragment/connections = PackedInt32Array(4, 0, 2, 0, 3, 0, 4, 1, 5, 0, 4, 0, 2, 0, 0, 1)

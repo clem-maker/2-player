@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://o6v3vj0nlyud"]
+
+[ext_resource type="Script" uid="uid://wyfsuk1ljmqw" path="res://scribte/player_blue.gd" id="1_s1jd5"]
+[ext_resource type="Shader" uid="uid://cbd8m4b64ex37" path="res://shader/player_blau.tres" id="2_txxrp"]
+[ext_resource type="Texture2D" uid="uid://b1a7ohfwxfvdo" path="res://pixel_art/player_blau.jpg" id="3_l23qj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ftwe8"]
+radius = 14.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_twkg6"]
+shader = ExtResource("2_txxrp")
+
+[node name="player_blau" type="CharacterBody2D" unique_id=827101590]
+scale = Vector2(2, 2)
+script = ExtResource("1_s1jd5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=237866715]
+visible = false
+shape = SubResource("CircleShape2D_ftwe8")
+
+[node name="PlayerBlau" type="Sprite2D" parent="." unique_id=583442136]
+texture_filter = 1
+material = SubResource("ShaderMaterial_twkg6")
+texture = ExtResource("3_l23qj")
