@@ -1,6 +1,8 @@
 extends CharacterBody2D
 var multiplier
+var jump_time :float = 0
 
+const max_jump_height : float = 1.5
 const SPEED = 700
 const JUMP_VELOCITY = -650.0
 
@@ -15,8 +17,12 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * multiplier * delta
 		
 	#jumpen
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY 
+	if Input.is_action_pressed("jump") and is_on_floor():
+		jump_time = count_time(delta) #debug jump :   print(jump_time)
+	if Input.is_action_just_released("jump"):
+		var clamped_jump_time = clampf( jump_time , 0., max_jump_height)
+		velocity.y = clamped_jump_time * JUMP_VELOCITY
+		jump_time = 0.0
 
 
 	var direction := Input.get_axis("left","right")
