@@ -19,6 +19,7 @@ config/icon="uid://b1a7ohfwxfvdo"
 [autoload]
 
 Global="*uid://dvx8c5haon873"
+JumpManager="*uid://bjpditdwrxc52"
 
 [display]
 
