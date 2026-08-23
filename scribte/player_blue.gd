@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("jump"):
 		var clamped_jump_time = clampf( JumpManager.jump_time , 0., JumpManager.max_jump_height)
 		velocity.y = clamped_jump_time * JUMP_VELOCITY
-		
+		JumpManager.reset_jumptime()
 
 
 	var direction := Input.get_axis("left","right")
@@ -31,4 +31,3 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
-	JumpManager.jump_time = 0.0
