@@ -17,7 +17,6 @@ func _physics_process(delta: float) -> void:
 	#jumpen
 	if Input.is_action_pressed("jump") and is_on_floor():
 		JumpManager.jump_time = JumpManager.count_time(delta) #debug jump :   print(jump_time)
-		print(JumpManager.jump_time)
 	if Input.is_action_just_released("jump"):
 		var clamped_jump_time = clampf( JumpManager.jump_time , 0., JumpManager.max_jump_height)
 		velocity.y = clamped_jump_time * JUMP_VELOCITY

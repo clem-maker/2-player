@@ -13,7 +13,7 @@ config_version=5
 config/name="2player"
 run/main_scene="uid://dynmp54cj4ll6"
 config/features=PackedStringArray("4.7", "Mobile")
-run/max_fps=20
+run/max_fps=60
 config/icon="uid://b1a7ohfwxfvdo"
 
 [autoload]
