@@ -2,15 +2,7 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tpb3x"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_tpb3x"]
-size = Vector2(1280, 3)
-
 [node name="boden" type="StaticBody2D" unique_id=1881016505]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=899115471]
 shape = SubResource("WorldBoundaryShape2D_tpb3x")
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1011072854]
-modulate = Color(0.48235294, 1, 1, 1)
-self_modulate = Color(0.23137255, 1, 1, 1)
-mesh = SubResource("QuadMesh_tpb3x")

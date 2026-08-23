@@ -7,7 +7,7 @@ var visited : int = 0
 
 func count_time(delta:float) -> float:
 	jump_time += delta /2 #if both players acess this function then it growths twise as fast as intendet so you need to devide it by two.
-	return jump_time 
+	return jump_time *1.05
 
 
 
@@ -20,6 +20,5 @@ func reset_jumptime():
 	#if both have than reset zero so the values don't stack.
 	if visited >= 2:
 		jump_time = 0
-		print(jump_time)
 		#don't forget to reset the value:
 		visited = 0

@@ -5,6 +5,15 @@
 [ext_resource type="Script" uid="uid://o63kosot1f5" path="res://scribte/main.gd" id="1_s382v"]
 [ext_resource type="PackedScene" uid="uid://clo6wvw17ccfb" path="res://scens/player_rot.tscn" id="3_stwvi"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tpb3x"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ftwe8"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_twkg6"]
+normal = Vector2(-1, 0)
+
 [node name="main" type="Node2D" unique_id=430030530]
 script = ExtResource("1_s382v")
 
@@ -15,8 +24,26 @@ offset_bottom = 720.0
 [node name="Camera" type="Camera2D" parent="." unique_id=1617254573]
 anchor_mode = 0
 
-[node name="boden" parent="." unique_id=1881016505 instance=ExtResource("1_0xm2m")]
+[node name="barriers" type="Node2D" parent="." unique_id=1666129382]
+
+[node name="bottom" parent="barriers" unique_id=1881016505 instance=ExtResource("1_0xm2m")]
 position = Vector2(640, 722)
+
+[node name="decke" type="StaticBody2D" parent="barriers" unique_id=1505408036]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="barriers/decke" unique_id=1636938468]
+shape = SubResource("WorldBoundaryShape2D_tpb3x")
+
+[node name="left" type="StaticBody2D" parent="barriers" unique_id=59010575]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="barriers/left" unique_id=987784668]
+shape = SubResource("WorldBoundaryShape2D_ftwe8")
+
+[node name="right" type="StaticBody2D" parent="barriers" unique_id=239274897]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="barriers/right" unique_id=783492271]
+position = Vector2(1280, 0)
+shape = SubResource("WorldBoundaryShape2D_twkg6")
 
 [node name="players" type="Node2D" parent="." unique_id=638642446]
 
