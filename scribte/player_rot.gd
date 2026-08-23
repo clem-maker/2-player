@@ -1,10 +1,14 @@
 extends CharacterBody2D
 const SPEED = 700
 const JUMP_VELOCITY = -650.0
-
 var multiplier
 
+#const states : Array = ()
+
+
 func _physics_process(delta: float) -> void:
+	
+	
 	#gravity
 	if not is_on_floor():
 		if velocity.y > 0.0:
