@@ -7,6 +7,10 @@ const max_jump_height : float = 1.5
 var multiplier
 var jump_time :float = 0
 
+func get_direction():
+	var direction = Input.get_axis("left","right")
+	return direction
+	
 func _physics_process(delta: float) -> void:
 	#gravity
 	if not is_on_floor():
@@ -23,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("jump"):
 		var clamped_jump_time = clampf( jump_time , 0.5, max_jump_height)
 		velocity.y = clamped_jump_time * JUMP_VELOCITY
-		reset_jumptime()
+		jump_time = 0
 
 
 	var direction = get_direction()#Input.get_axis("left","right")
@@ -35,34 +39,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
 
-
-func get_direction():
-	var direction = Input.get_axis("left","right")
-	return direction
-	
-	
-	
-	
-
-
-
 var visited : int = 0
 
 
 func count_time(delta:float) -> float:
 	jump_time += delta /2 #if both players acess this function then it growths twise as fast as intendet so you need to devide it by two.
-	return jump_time *1.05
-
-
-
-# reset only if both players (red and blue have seen the jump_time value.)
-func reset_jumptime():
-	#cheaks if both (red and blue player) have seen the jump_time value.
-	
-	visited += 1
-	
-	#if both have than reset zero so the values don't stack.
-	if visited >= 2:
-		jump_time = 0
-		#don't forget to reset the value:
-		visited = 0
+	print(jump_time)
+	return jump_time 

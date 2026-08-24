@@ -2,9 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://4v5ryg42chib" path="res://scens/boden.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://o6v3vj0nlyud" path="res://scens/player-blau.tscn" id="1_ig7tw"]
-[ext_resource type="Script" uid="uid://o63kosot1f5" path="res://scribte/main.gd" id="1_s382v"]
-[ext_resource type="Shader" uid="uid://bncji1nbytysc" path="res://scens/main.gdshader" id="2_4gohe"]
+[ext_resource type="Shader" uid="uid://bncji1nbytysc" path="res://shader/main.gdshader" id="2_4gohe"]
 [ext_resource type="PackedScene" uid="uid://clo6wvw17ccfb" path="res://scens/player_rot.tscn" id="3_stwvi"]
+
+[sub_resource type="GDScript" id="GDScript_s382v"]
+script/source = "extends Node2D
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4gohe"]
 shader = ExtResource("2_4gohe")
@@ -19,7 +22,7 @@ normal = Vector2(1, 0)
 normal = Vector2(-1, 0)
 
 [node name="main" type="Node2D" unique_id=430030530]
-script = ExtResource("1_s382v")
+script = SubResource("GDScript_s382v")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1036334207]
 material = SubResource("ShaderMaterial_4gohe")
