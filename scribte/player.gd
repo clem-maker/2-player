@@ -1,5 +1,6 @@
 class_name player_scribt
 extends CharacterBody2D
+
 const SPEED = 700
 const JUMP_VELOCITY = -650.0
 const max_jump_height : float = 1.5
@@ -10,7 +11,13 @@ var jump_time :float = 0
 func get_direction():
 	var direction = Input.get_axis("left","right")
 	return direction
-	
+
+func count_time(delta:float) -> float:
+	jump_time += delta /2 #if both players acess this function then it growths twise as fast as intendet so you need to devide it by two.
+	print(jump_time)
+	return jump_time 
+
+
 func _physics_process(delta: float) -> void:
 	#gravity
 	if not is_on_floor():
@@ -38,11 +45,3 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
-
-var visited : int = 0
-
-
-func count_time(delta:float) -> float:
-	jump_time += delta /2 #if both players acess this function then it growths twise as fast as intendet so you need to devide it by two.
-	print(jump_time)
-	return jump_time 
