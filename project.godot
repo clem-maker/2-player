@@ -34,6 +34,10 @@ window/vsync/vsync_mode=0
 
 project/assembly_name="2player"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/Clemi/Videos/godot/2-player/video_1.png"
+
 [input]
 
 right={
