@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://4v5ryg42chib" path="res://scens/boden.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://o6v3vj0nlyud" path="res://scens/player-blau.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://o63kosot1f5" path="res://scribte/main.gd" id="1_s382v"]
-[ext_resource type="Shader" uid="uid://bncji1nbytysc" path="res://shader/main.gdshader" id="2_4gohe"]
+[ext_resource type="Shader" uid="uid://bncji1nbytysc" path="res://scens/main.gdshader" id="2_4gohe"]
 [ext_resource type="PackedScene" uid="uid://clo6wvw17ccfb" path="res://scens/player_rot.tscn" id="3_stwvi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4gohe"]
