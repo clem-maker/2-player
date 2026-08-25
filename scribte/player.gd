@@ -77,5 +77,5 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED) #if no input
 	move_and_slide()
-	if is_state_default(state):
+	if is_state_default(state) and Input.is_action_just_pressed("jump") == false:
 		state = change_state_to("default")
