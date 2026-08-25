@@ -46,16 +46,16 @@ func _input(_event: InputEvent) -> void:
 			
 	#jumping logic
 	if state == states_avalibile[1]: #jumping
-		#jumpen
-		var delta = get_process_delta_time()
-		if Input.is_action_pressed("jump") and is_on_floor():
-			jump_time = count_time(delta) #debug jump :   print(jump_time)
+		#jumpen:
 			
 		#release the jump:
 		if Input.is_action_just_released("jump"):
 			velocity.y = jump_time * JUMP_VELOCITY
-			jump_time = 0
+			jump_time_local = 0
 func _physics_process(delta: float) -> void:
+	if Input.is_action_pressed("jump") and is_on_floor():
+		jump_time = count_time(delta) #debug jump :   print(jump_time)
+	#jump_time_local = 0
 	if state in states_avalibile: #immer
 		#gravity
 		if not is_on_floor():
