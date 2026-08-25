@@ -14,14 +14,14 @@ const states_avalibile : Array = ["default" , "jumping"]
 var state = "default"
 
 func get_direction():
-	var direction = Input.get_axis("left","right")
+	direction = Input.get_axis("left","right")
 	return direction
 func count_time(delta:float) -> float:
 	jump_time += delta /2 #if both players acess this function then it growths twise as fast as intendet so you need to devide it by two.
 	print(jump_time)
 	return jump_time 
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	#jumpen
 	var delta = get_process_delta_time()
 	if Input.is_action_pressed("jump") and is_on_floor():
