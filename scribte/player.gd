@@ -32,7 +32,6 @@ func count_time(delta:float) -> float:
 func change_state_to(new_state : String) ->void:
 	if state in states_avalibile:
 		state = new_state
-		print(state)
 		return
 	print_debug("Fehler state not avalible")
 func _input(_event: InputEvent) -> void:
