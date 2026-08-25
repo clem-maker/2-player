@@ -1,14 +1,14 @@
 class_name player_scribt
 extends CharacterBody2D
 
-const SPEED = 700
-const JUMP_VELOCITY = -650.0
+const SPEED : float = 700
+const JUMP_VELOCITY : float = -650.0
 const max_jump_height : float = 1.5
 
 var multiplier
 var jump_time :float = 0
 var direction : float = 0
-
+var clamped_jump_time : float
 #state machine:
 const states_avalibile : Array = ["default" , "jumping"]
 var state = "default"
@@ -63,8 +63,8 @@ func _input(_event: InputEvent) -> void:
 		var delta = get_process_delta_time()
 		if Input.is_action_pressed("jump") and is_on_floor():
 			jump_time = count_time(delta) #debug jump :   print(jump_time)
+			clamped_jump_time = clampf( jump_time , 0.5, max_jump_height)
 		if Input.is_action_just_released("jump"):
-			var clamped_jump_time = clampf( jump_time , 0.5, max_jump_height)
 			velocity.y = clamped_jump_time * JUMP_VELOCITY
 			jump_time = 0
 func _physics_process(delta: float) -> void:
