@@ -41,9 +41,10 @@ func _physics_process(delta: float) -> void:
 		else:
 			multiplier = 1.0
 		velocity += get_gravity() * multiplier * delta
-
+		
+	#moving right/left
 	velocity.x = direction * SPEED
-	
+	#smoth deaccleration
 	if direction != 0:
 		velocity.x = direction * SPEED #normel movment
 	else:
