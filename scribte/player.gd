@@ -8,7 +8,6 @@ const max_jump_height : float = 1.5
 var multiplayer_gravity_strenght : float
 var jump_time :float = 0
 var direction : float = 0
-var clamped_jump_time : float
 #state machine:
 const states_avalibile : Array = ["default" , "jumping"]
 var state = "default"
@@ -23,9 +22,12 @@ func get_direction():
 	var direction_local = Input.get_axis("left","right")
 	return direction_local
 func count_time(delta:float) -> float:
-	jump_time += delta /2 #if both players acess this function then it growths twise as fast as intendet so you need to devide it by two.
-	print(jump_time)
-	return jump_time 
+	var jump_time_local : float = 0
+	if jump_time_local <max_jump_height:
+		jump_time_local += delta /2 
+		#print(jump_time) # 			<-- debug jumptime here 
+	var clamped_jump_time = clampf( jump_time , 0.5, max_jump_height)
+	return clamped_jump_time
 func is_current_state_correct(current_state :String) ->int: 
 	if is_on_floor() :
 		current_state = states_avalibile[0] #if player is on floor and the state is not equal to states_Avalabile[0],
@@ -53,7 +55,7 @@ func _input(_event: InputEvent) -> void:
 		
 		#cheak if Input spacebutton is equal to jump, if true the state will be set to jumping:
 		if Input.is_action_pressed("jump") and get_state() != 1: # if jumpbutton and state is not allready set to jump (so you don't make a dpuble jump or jump in the air ) 
-			state = states_avalibile[is_current_state_correct(state)] #debug states here:    print("curren state is:",is_current_state_correct(state))
+			#debug states here:    print("curren state is:",is_current_state_correct(state))
 			change_state_to(states_avalibile[1]) #state is set to jump
 			
 	#jumping logic
@@ -62,10 +64,10 @@ func _input(_event: InputEvent) -> void:
 		var delta = get_process_delta_time()
 		if Input.is_action_pressed("jump") and is_on_floor():
 			jump_time = count_time(delta) #debug jump :   print(jump_time)
-			clamped_jump_time = clampf( jump_time , 0.5, max_jump_height)
+			
 		#release the jump:
 		if Input.is_action_just_released("jump"):
-			velocity.y = clamped_jump_time * JUMP_VELOCITY
+			velocity.y = jump_time * JUMP_VELOCITY
 			jump_time = 0
 func _physics_process(delta: float) -> void:
 	if state in states_avalibile: #immer
