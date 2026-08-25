@@ -16,7 +16,9 @@ var state = "default"
 func get_state()->int:
 	if state == "default": return 0
 	elif state == "jumping": return 1
-	else: return -1 # ERROR
+	else:
+		print_debug("ERROR state does not exist.")
+		return 0
 func get_direction():
 	direction = Input.get_axis("left","right")
 	return direction
