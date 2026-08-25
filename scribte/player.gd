@@ -4,10 +4,12 @@ extends CharacterBody2D
 const SPEED : float = 700
 const JUMP_VELOCITY : float = -650.0
 const max_jump_height : float = 1.5
+const min_jump_height : float = 0.5
 
 var multiplayer_gravity_strenght : float
 var jump_time :float = 0
 var direction : float = 0
+var jump_time_local : float = 0
 #state machine:
 const states_avalibile : Array = ["default" , "jumping"]
 var state = "default"
@@ -22,26 +24,11 @@ func get_direction():
 	var direction_local = Input.get_axis("left","right")
 	return direction_local
 func count_time(delta:float) -> float:
-	var jump_time_local : float = 0
 	if jump_time_local <max_jump_height:
 		jump_time_local += delta /2 
 		#print(jump_time) # 			<-- debug jumptime here 
-	var clamped_jump_time = clampf( jump_time , 0.5, max_jump_height)
-	return clamped_jump_time
-func is_current_state_correct(current_state :String) ->int: 
-	if is_on_floor() :
-		current_state = states_avalibile[0] #if player is on floor and the state is not equal to states_Avalabile[0],
-		#                                    ("default") than change the variable states to "default", LOWERCASE!
-	elif not is_on_floor() :
-		current_state = states_avalibile[1]#if player is on floor and the state is not equal to states_Avalabile[1],
-		#                                    ("jumping") than change the variable states to "default", LOWERCASE!
-
-	if current_state == "default": return 0
-	elif current_state =="jumping": return 1
-	
-	else:
-		get_tree().quit(1) #ERROR state not avalibile
-		return 1
+	jump_time_local = maxf(jump_time_local , min_jump_height)
+	return jump_time_local
 func change_state_to(new_state : String) ->void:
 	if state in states_avalibile:
 		state = new_state
