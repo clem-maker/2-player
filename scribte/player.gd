@@ -35,7 +35,10 @@ func is_current_state_correct(current_state :String) ->int:
 	
 	if current_state == "default": return 0
 	elif current_state =="jumping": return 1
-	else: return -1 #Error handeling
+	
+	else:
+		get_tree().quit(1) #ERROR state not avalibile
+		return 1
 func change_state_to(new_state : String) ->void:
 	if state in states_avalibile:
 		state = new_state
