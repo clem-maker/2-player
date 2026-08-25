@@ -53,7 +53,8 @@ func _input(_event: InputEvent) -> void:
 		direction = get_direction() #Input.get_axis("left","right")
 		
 		#cheak if Input spacebutton is equal to jump, if true the state will be set to jumping:
-		if Input.is_action_just_released("jump") and get_state() != 1: # if jumpbutton and state is not allready set to jump (so you don't make a dpuble jump or jump in the air ) 
+		if Input.is_action_pressed("jump") and get_state() != 1: # if jumpbutton and state is not allready set to jump (so you don't make a dpuble jump or jump in the air ) 
+			state = states_avalibile[is_current_state_correct(state)] #debug states here:    print("curren state is:",is_current_state_correct(state))
 			change_state_to(states_avalibile[1]) #state is set to jump
 			
 	#jumping logic
@@ -67,7 +68,6 @@ func _input(_event: InputEvent) -> void:
 			velocity.y = clamped_jump_time * JUMP_VELOCITY
 			jump_time = 0
 func _physics_process(delta: float) -> void:
-	state = states_avalibile[is_current_state_correct(state)] #debug states here:    print("curren state is:",is_current_state_correct(state))
 	if state in states_avalibile: #immer
 		#gravity
 		if not is_on_floor():
