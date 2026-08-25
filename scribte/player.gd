@@ -53,7 +53,7 @@ func _input(_event: InputEvent) -> void:
 		direction = get_direction() #Input.get_axis("left","right")
 		
 		#cheak if Input spacebutton is equal to jump, if true the state will be set to jumping:
-		if Input.is_action_just_released("jump") and not get_state() == 1: # if jumpbutton and state is not allready set to jump (so you don't make a dpuble jump or jump in the air ) 
+		if Input.is_action_just_released("jump") and get_state() != 1: # if jumpbutton and state is not allready set to jump (so you don't make a dpuble jump or jump in the air ) 
 			change_state_to(states_avalibile[1]) #state is set to jump
 			
 	#jumping logic
