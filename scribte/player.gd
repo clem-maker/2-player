@@ -14,6 +14,11 @@ var jump_time_local : float = 0
 const states_avalibile : Array = ["default" , "jumping"]
 var state = "default"
 
+func is_state_default(state)->bool:
+	if is_on_floor():
+		return true
+	else:
+		return false
 func get_state()->int:
 	if state == "default": return 0
 	elif state == "jumping": return 1
@@ -29,11 +34,11 @@ func count_time(delta:float) -> float:
 		#print(jump_time) # 			<-- debug jumptime here 
 	jump_time_local = maxf(jump_time_local , min_jump_height)
 	return jump_time_local
-func change_state_to(new_state : String) ->void:
-	if state in states_avalibile:
-		state = new_state
-		return
+func change_state_to(new_state : String) ->String:
+	if new_state in states_avalibile:
+		return new_state
 	print_debug("Fehler state not avalible")
+	return states_avalibile[0]
 func _input(_event: InputEvent) -> void:
 	if state in states_avalibile:# always
 		#moving (right/left)
@@ -42,7 +47,7 @@ func _input(_event: InputEvent) -> void:
 		#cheak if Input spacebutton is equal to jump, if true the state will be set to jumping:
 		if Input.is_action_pressed("jump") and get_state() != 1: # if jumpbutton and state is not allready set to jump (so you don't make a dpuble jump or jump in the air ) 
 			#debug states here:    print("curren state is:",is_current_state_correct(state))
-			change_state_to(states_avalibile[1]) #state is set to jump
+			state = change_state_to(states_avalibile[1]) #state is set to jump
 			
 	#jumping logic
 	if state == states_avalibile[1]: #jumping
@@ -72,3 +77,5 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED) #if no input
 	move_and_slide()
+	if is_state_default(state):
+		state = change_state_to("default")
