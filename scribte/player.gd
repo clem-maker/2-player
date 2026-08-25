@@ -5,7 +5,7 @@ const SPEED : float = 700
 const JUMP_VELOCITY : float = -650.0
 const max_jump_height : float = 1.5
 
-var multiplier
+var multiplayer_gravity_strenght : float
 var jump_time :float = 0
 var direction : float = 0
 var clamped_jump_time : float
@@ -20,8 +20,8 @@ func get_state()->int:
 		print_debug("ERROR state does not exist.")
 		return 0
 func get_direction():
-	direction = Input.get_axis("left","right")
-	return direction
+	var direction_local = Input.get_axis("left","right")
+	return direction_local
 func count_time(delta:float) -> float:
 	jump_time += delta /2 #if both players acess this function then it growths twise as fast as intendet so you need to devide it by two.
 	print(jump_time)
@@ -72,10 +72,10 @@ func _physics_process(delta: float) -> void:
 		#gravity
 		if not is_on_floor():
 			if velocity.y > 0.0:
-				multiplier = 2.2
+				multiplayer_gravity_strenght = 2.2
 			else:
-				multiplier = 1.0
-			velocity += get_gravity() * multiplier * delta
+				multiplayer_gravity_strenght = 1.0
+			velocity += get_gravity() * multiplayer_gravity_strenght * delta
 			
 
 		#smoth deaccleration
