@@ -22,6 +22,7 @@ func count_time(delta:float) -> float:
 	return jump_time 
 
 func _input(_event: InputEvent) -> void:
+	
 	#jumpen
 	var delta = get_process_delta_time()
 	if Input.is_action_pressed("jump") and is_on_floor():
