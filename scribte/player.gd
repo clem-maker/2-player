@@ -27,14 +27,13 @@ func count_time(delta:float) -> float:
 	print(jump_time)
 	return jump_time 
 func is_current_state_correct(current_state :String) ->int: 
-	if is_on_floor() and not current_state == states_avalibile[0]:
+	if is_on_floor() :
 		current_state = states_avalibile[0] #if player is on floor and the state is not equal to states_Avalabile[0],
 		#                                    ("default") than change the variable states to "default", LOWERCASE!
-
-	elif not is_on_floor() and not current_state == states_avalibile[1]:
+	elif not is_on_floor() :
 		current_state = states_avalibile[1]#if player is on floor and the state is not equal to states_Avalabile[1],
 		#                                    ("jumping") than change the variable states to "default", LOWERCASE!
-	
+
 	if current_state == "default": return 0
 	elif current_state =="jumping": return 1
 	
@@ -64,6 +63,7 @@ func _input(_event: InputEvent) -> void:
 		if Input.is_action_pressed("jump") and is_on_floor():
 			jump_time = count_time(delta) #debug jump :   print(jump_time)
 			clamped_jump_time = clampf( jump_time , 0.5, max_jump_height)
+		#release the jump:
 		if Input.is_action_just_released("jump"):
 			velocity.y = clamped_jump_time * JUMP_VELOCITY
 			jump_time = 0
