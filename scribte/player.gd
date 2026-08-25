@@ -39,7 +39,7 @@ func change_state_to(new_state : String) ->String:
 		return new_state
 	print_debug("Fehler state not avalible")
 	return states_avalibile[0]
-func _input(_event: InputEvent) -> void:
+func _input(_Inputevent) -> void:
 	if state in states_avalibile:# always
 		#moving (right/left)
 		direction = get_direction() #Input.get_axis("left","right")
