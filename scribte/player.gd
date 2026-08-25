@@ -14,7 +14,7 @@ const states_avalibile : Array = ["default" , "jumping"]
 var state = "default"
 
 func get_state()->int:
-	if state == "defualt": return 0
+	if state == "default": return 0
 	elif state == "jumping": return 1
 	else: return -1 # ERROR
 func get_direction():
@@ -24,7 +24,7 @@ func count_time(delta:float) -> float:
 	jump_time += delta /2 #if both players acess this function then it growths twise as fast as intendet so you need to devide it by two.
 	print(jump_time)
 	return jump_time 
-func is_current_state_correct(current_state :String) ->int:
+func is_current_state_correct(current_state :String) ->int: 
 	if is_on_floor() and not current_state == states_avalibile[0]:
 		current_state = states_avalibile[0] #if player is on floor and the state is not equal to states_Avalabile[0],
 		#                                    ("default") than change the variable states to "default", LOWERCASE!
@@ -51,7 +51,7 @@ func _input(_event: InputEvent) -> void:
 		if Input.is_action_just_released("jump") and not get_state() == 1: # if jumpbutton and state is not allready set to jump (so you don't make a dpuble jump or jump in the air ) 
 			change_state_to(states_avalibile[1]) #state is set to jump
 			
-	
+	#jumping logic
 	if state == states_avalibile[1]: #jumping
 		#jumpen
 		var delta = get_process_delta_time()
@@ -72,8 +72,7 @@ func _physics_process(delta: float) -> void:
 				multiplier = 1.0
 			velocity += get_gravity() * multiplier * delta
 			
-		#moving right/left
-		velocity.x = direction * SPEED
+
 		#smoth deaccleration
 		if direction != 0:
 			velocity.x = direction * SPEED #normel movment
