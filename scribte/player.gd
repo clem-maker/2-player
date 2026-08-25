@@ -58,6 +58,10 @@ func _input(_event: InputEvent) -> void:
 			velocity.y = jump_time * JUMP_VELOCITY
 			jump_time_local = 0
 func _physics_process(delta: float) -> void:
+	if is_on_floor():
+		state = states_avalibile[0]   # default
+	else:
+		state = states_avalibile[1]   # jumping
 	if Input.is_action_pressed("jump") and is_on_floor():
 		jump_time = count_time(delta) #debug jump :   print(jump_time)
 	#jump_time_local = 0
@@ -77,5 +81,5 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED) #if no input
 	move_and_slide()
-	if is_state_default(state) and Input.is_action_just_pressed("jump") == false:
-		state = change_state_to("default")
+	#if is_state_default(state) and state == states_avalibile[1]:
+		#state = states_avalibile[0]
