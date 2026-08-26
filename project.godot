@@ -16,11 +16,6 @@ config/features=PackedStringArray("4.7", "Mobile")
 run/max_fps=20
 config/icon="uid://b1a7ohfwxfvdo"
 
-[autoload]
-
-Global="*uid://dvx8c5haon873"
-JumpManager="*uid://bjpditdwrxc52"
-
 [display]
 
 window/size/viewport_width=1280
