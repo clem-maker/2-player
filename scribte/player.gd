@@ -14,7 +14,7 @@ var jump_time_local : float = 0
 const states_avalibile : Array = ["default" , "jumping"]
 var state = "default"
 
-func is_state_default(state)->bool:
+func is_state_default()->bool:
 	if is_on_floor():
 		return true
 	else:
