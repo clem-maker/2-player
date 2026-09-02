@@ -30,7 +30,7 @@ func get_direction():
 	return direction_local
 func count_time(delta:float) -> float:
 	if jump_time_local <max_jump_height:
-		jump_time_local += delta /2 
+		jump_time_local += delta 
 		#print(jump_time) # 			<-- debug jumptime here 
 	jump_time_local = maxf(jump_time_local , min_jump_height)
 	return jump_time_local
@@ -39,32 +39,34 @@ func change_state_to(new_state : String) ->String:
 		return new_state
 	print_debug("Fehler state not avalible")
 	return states_avalibile[0]
-func _input(_Inputevent) -> void:
+func get_input(delta) ->void:
 	if state in states_avalibile:# always
 		#moving (right/left)
-		direction = get_direction() #Input.get_axis("left","right")
+		direction = get_direction()
 		
 		#cheak if Input spacebutton is equal to jump, if true the state will be set to jumping:
 		if Input.is_action_pressed("jump") and get_state() != 1: # if jumpbutton and state is not allready set to jump (so you don't make a dpuble jump or jump in the air ) 
-			#debug states here:    print("curren state is:",is_current_state_correct(state))
 			state = change_state_to(states_avalibile[1]) #state is set to jump
-			
 	#jumping logic
 	if state == states_avalibile[1]: #jumping
 		#jumpen:
-			
+		jump_time = count_time(delta)
 		#release the jump:
-		if Input.is_action_just_released("jump"):
-			velocity.y = jump_time * JUMP_VELOCITY
-			jump_time_local = 0
+	if Input.is_action_just_released("jump"):
+		print("jump_3")
+		velocity.y = jump_time * JUMP_VELOCITY
+		jump_time_local = 0
 func _physics_process(delta: float) -> void:
+	get_input(delta)
+	
+	#other logic
 	if is_on_floor():
 		state = states_avalibile[0]   # default
 	else:
 		state = states_avalibile[1]   # jumping
-	if Input.is_action_pressed("jump") and is_on_floor():
-		jump_time = count_time(delta) #debug jump :   print(jump_time)
-	#jump_time_local = 0
+	#if Input.is_action_pressed("jump") and is_on_floor():
+		#jump_time = count_time(delta) #debug jump :   print(jump_time)
+	##jump_time_local = 0
 	if state in states_avalibile: #immer
 		#gravity
 		if not is_on_floor():
