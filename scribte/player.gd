@@ -9,7 +9,6 @@ const min_jump_height : float = 0.5
 var multiplayer_gravity_strenght : float
 var jump_time :float = 0
 var direction : float = 0
-var jump_time_local : float = 0
 #state machine:
 const states_avalibile : Array = ["default" , "jumping"]
 var state = "default"
@@ -28,12 +27,6 @@ func get_state()->int:
 func get_direction():
 	var direction_local = Input.get_axis("left","right")
 	return direction_local
-func count_time(delta:float) -> float:
-	if jump_time_local <max_jump_height:
-		jump_time_local += delta 
-		#print(jump_time) # 			<-- debug jumptime here 
-	jump_time_local = maxf(jump_time_local , min_jump_height)
-	return jump_time_local
 func change_state_to(new_state : String) ->String:
 	if new_state in states_avalibile:
 		return new_state
@@ -50,12 +43,11 @@ func get_input(delta) ->void:
 	#jumping logic
 	if state == states_avalibile[1]: #jumping
 		#jumpen:
-		jump_time = count_time(delta)
+		jump_time += delta
 		#release the jump:
 	if Input.is_action_just_released("jump"):
-		print("jump_3")
 		velocity.y = jump_time * JUMP_VELOCITY
-		jump_time_local = 0
+		jump_time = 0
 func _physics_process(delta: float) -> void:
 	get_input(delta)
 	
