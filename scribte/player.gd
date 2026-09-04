@@ -2,7 +2,7 @@ class_name player_scribt
 extends CharacterBody2D
 
 const SPEED : float = 700
-const JUMP_VELOCITY : float = -650.0
+const JUMP_VELOCITY : float = -250.0
 const max_jump_height : float = 1.5
 const min_jump_height : float = 0.5
 
@@ -13,6 +13,9 @@ var direction : float = 0
 const states_avalibile : Array = ["default" , "jumping"]
 var state = "default"
 
+func jump_time_counter(delta : float) ->float:
+	var local_jump_time :float = delta
+	return local_jump_time
 func is_state_default()->bool:
 	if is_on_floor():
 		return true
@@ -39,6 +42,7 @@ func get_input(delta) ->void:
 		
 		#cheak if Input spacebutton is equal to jump, if true the state will be set to jumping:
 		if Input.is_action_pressed("jump") and get_state() != 1: # if jumpbutton and state is not allready set to jump (so you don't make a dpuble jump or jump in the air ) 
+			print(jump_time)
 			state = change_state_to(states_avalibile[1]) #state is set to jump
 	#jumping logic
 	if state == states_avalibile[1]: #jumping
@@ -46,6 +50,7 @@ func get_input(delta) ->void:
 		jump_time += delta
 		#release the jump:
 	if Input.is_action_just_released("jump"):
+		print(smoothstep(min_jump_height , max_jump_height , jump_time))
 		velocity.y = jump_time * JUMP_VELOCITY
 		jump_time = 0
 func _physics_process(delta: float) -> void:
