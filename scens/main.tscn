@@ -1,14 +1,11 @@
 [gd_scene format=3 uid="uid://dynmp54cj4ll6"]
 
 [ext_resource type="PackedScene" uid="uid://4v5ryg42chib" path="res://scens/boden.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://o63kosot1f5" path="res://scens/main.gd" id="1_3ioej"]
 [ext_resource type="PackedScene" uid="uid://o6v3vj0nlyud" path="res://scens/player-blau.tscn" id="1_ig7tw"]
 [ext_resource type="Shader" uid="uid://bncji1nbytysc" path="res://shader/main.gdshader" id="2_4gohe"]
 [ext_resource type="PackedScene" uid="uid://clo6wvw17ccfb" path="res://scens/player_rot.tscn" id="3_stwvi"]
 [ext_resource type="PackedScene" uid="uid://c3mvsfwdyftup" path="res://scens/plattform.tscn" id="5_4gohe"]
-
-[sub_resource type="GDScript" id="GDScript_s382v"]
-script/source = "extends Node2D
-"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4gohe"]
 shader = ExtResource("2_4gohe")
@@ -23,7 +20,7 @@ normal = Vector2(1, 0)
 normal = Vector2(-1, 0)
 
 [node name="main" type="Node2D" unique_id=430030530]
-script = SubResource("GDScript_s382v")
+script = ExtResource("1_3ioej")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1036334207]
 material = SubResource("ShaderMaterial_4gohe")
@@ -68,7 +65,7 @@ shape = SubResource("WorldBoundaryShape2D_twkg6")
 position = Vector2(124, 524)
 collision_mask = 1
 
-[node name="player_rot" parent="players" unique_id=1054043953 instance=ExtResource("3_stwvi")]
+[node name="player_red" parent="players" unique_id=1054043953 instance=ExtResource("3_stwvi")]
 position = Vector2(232, 522)
 collision_mask = 1
 

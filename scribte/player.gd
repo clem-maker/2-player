@@ -42,7 +42,7 @@ func get_input(delta) ->void:
 		
 		#cheak if Input spacebutton is equal to jump, if true the state will be set to jumping:
 		if Input.is_action_pressed("jump") and get_state() != 1: # if jumpbutton and state is not allready set to jump (so you don't make a dpuble jump or jump in the air ) 
-			print(jump_time)
+			#print((3*jump_time**2 - 2 * jump_time **3 )*10)
 			state = change_state_to(states_avalibile[1]) #state is set to jump
 	#jumping logic
 	if state == states_avalibile[1]: #jumping
@@ -50,8 +50,7 @@ func get_input(delta) ->void:
 		jump_time += delta
 		#release the jump:
 	if Input.is_action_just_released("jump"):
-		print(smoothstep(min_jump_height , max_jump_height , jump_time))
-		velocity.y = jump_time * JUMP_VELOCITY
+		velocity.y = (jump_time**1.5) * JUMP_VELOCITY
 		jump_time = 0
 func _physics_process(delta: float) -> void:
 	get_input(delta)
