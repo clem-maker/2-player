@@ -27,7 +27,7 @@ func get_state()->int:
 	else:
 		print_debug("ERROR state does not exist.")
 		return 0
-func get_direction():
+func get_direction()->float:
 	var direction_local = Input.get_axis("left","right")
 	return direction_local
 func change_state_to(new_state : String) ->String:
