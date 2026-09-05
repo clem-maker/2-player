@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cgvlh1r7nk4em"]
 
 [ext_resource type="Shader" uid="uid://bgisemienbiob" path="res://shader/target.gdshader" id="1_1srcc"]
-[ext_resource type="Texture2D" uid="uid://cbwho3xog4pcp" path="res://pixel_art/target.png" id="2_l6fqm"]
-[ext_resource type="Script" uid="uid://dgnhomjtkwai8" path="res://no_use/target.gd" id="3_6fhri"]
+[ext_resource type="Texture2D" uid="uid://cbwho3xog4pcp" path="res://no_use/pixel_art/target.png" id="2_l6fqm"]
+[ext_resource type="Script" uid="uid://dgnhomjtkwai8" path="res://no_use/scribte/target.gd" id="3_6fhri"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_20mpl"]
 shader = ExtResource("1_1srcc")

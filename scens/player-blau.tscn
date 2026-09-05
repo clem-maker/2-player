@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://wyfsuk1ljmqw" path="res://scribte/player_blue.gd" id="1_s1jd5"]
 [ext_resource type="Shader" uid="uid://cbd8m4b64ex37" path="res://shader/player_blau.tres" id="2_txxrp"]
 [ext_resource type="Texture2D" uid="uid://b1a7ohfwxfvdo" path="res://pixel_art/player_blau.jpg" id="3_l23qj"]
+[ext_resource type="Script" uid="uid://c3oeja7kr6wbk" path="res://scens/is_catched.gd" id="4_txxrp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ftwe8"]
 radius = 14.0
@@ -28,6 +29,9 @@ material = SubResource("ShaderMaterial_twkg6")
 texture = ExtResource("3_l23qj")
 
 [node name="is_catched" type="Area2D" parent="." unique_id=84031257]
+script = ExtResource("4_txxrp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="is_catched" unique_id=2100756992]
 shape = SubResource("CircleShape2D_tpb3x")
+
+[connection signal="body_shape_entered" from="is_catched" to="is_catched" method="_on_body_shape_entered"]
