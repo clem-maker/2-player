@@ -10,8 +10,12 @@ radius = 14.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_twkg6"]
 shader = ExtResource("2_txxrp")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_tpb3x"]
+radius = 16.0
+
 [node name="player_blau" type="CharacterBody2D" unique_id=827101590]
 scale = Vector2(2, 2)
+collision_mask = 6
 script = ExtResource("1_s1jd5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=237866715]
@@ -22,3 +26,8 @@ shape = SubResource("CircleShape2D_ftwe8")
 texture_filter = 1
 material = SubResource("ShaderMaterial_twkg6")
 texture = ExtResource("3_l23qj")
+
+[node name="is_catched" type="Area2D" parent="." unique_id=84031257]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="is_catched" unique_id=2100756992]
+shape = SubResource("CircleShape2D_tpb3x")

@@ -1,5 +1,5 @@
 extends Node2D
-
+# I will need this in the future so don't report it as a bug
 var time:float = 0
 
 
@@ -9,5 +9,3 @@ func _process(delta: float) -> void:
 	time += delta
 	if time >= 1:  time =0
 	#print(time)
-func _exit_tree() -> void:
-	print("ende",time)
