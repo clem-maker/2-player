@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dynmp54cj4ll6"]
 
 [ext_resource type="PackedScene" uid="uid://4v5ryg42chib" path="res://scens/boden.tscn" id="1_0xm2m"]
-[ext_resource type="Script" uid="uid://o63kosot1f5" path="res://scens/main.gd" id="1_3ioej"]
+[ext_resource type="Script" uid="uid://o63kosot1f5" path="res://scribte/main.gd" id="1_3ioej"]
 [ext_resource type="PackedScene" uid="uid://o6v3vj0nlyud" path="res://scens/player-blau.tscn" id="1_ig7tw"]
 [ext_resource type="Shader" uid="uid://bncji1nbytysc" path="res://shader/main.gdshader" id="2_4gohe"]
 [ext_resource type="PackedScene" uid="uid://clo6wvw17ccfb" path="res://scens/player_rot.tscn" id="3_stwvi"]
@@ -62,11 +62,11 @@ shape = SubResource("WorldBoundaryShape2D_twkg6")
 [node name="players" type="Node2D" parent="." unique_id=638642446]
 
 [node name="player_blue" parent="players" unique_id=827101590 instance=ExtResource("1_ig7tw")]
-position = Vector2(124, 524)
+position = Vector2(100, 524)
 collision_mask = 1
 
 [node name="player_red" parent="players" unique_id=1054043953 instance=ExtResource("3_stwvi")]
-position = Vector2(232, 522)
+position = Vector2(1180, 524)
 collision_mask = 1
 
 [node name="plattform" parent="." unique_id=1887424092 instance=ExtResource("5_4gohe")]
