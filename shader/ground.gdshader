@@ -5,7 +5,5 @@ void vertex() {
 }
 
 void fragment() {
-	COLOR.xy = UV;
-	COLOR = mix(COLOR,vec4(1),(sin(TIME*2.0)/6.0));
-
+	// Called for every pixel the material is visible on.
 }

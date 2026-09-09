@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://mo5twykfrk0f"]
+
+[ext_resource type="Shader" uid="uid://dfm4xslwy62gq" path="res://shader/ground.tres" id="1_8ty3n"]
+[ext_resource type="Texture2D" uid="uid://dgbgu8qmnrk3e" path="res://pixel_art/ground_path's/ground.png" id="1_kp5u5"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tpb3x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6y2ht"]
+shader = ExtResource("1_8ty3n")
+
+[node name="ground" type="StaticBody2D" unique_id=396866080]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1650052400]
+show_behind_parent = true
+position = Vector2(0, 1.5)
+shape = SubResource("WorldBoundaryShape2D_tpb3x")
+
+[node name="Ground" type="Sprite2D" parent="." unique_id=1430652367]
+texture_filter = 1
+material = SubResource("ShaderMaterial_6y2ht")
+position = Vector2(0, 16)
+texture = ExtResource("1_kp5u5")
