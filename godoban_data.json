@@ -1,5 +1,18 @@
 {
-  "next_id": 1,
+  "next_id": 2,
   "epics": [],
-  "tasks": []
+  "tasks": [
+    {
+      "id": "task_1",
+      "title": "add pixel art",
+      "description": "",
+      "status": "todo",
+      "priority": "high",
+      "epic_id": null,
+      "due_date": null,
+      "tags": [],
+      "created_at": 1789058302,
+      "updated_at": 1789058306
+    }
+  ]
 }

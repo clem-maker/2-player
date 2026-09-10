@@ -17,6 +17,7 @@ shape = SubResource("WorldBoundaryShape2D_tpb3x")
 
 [node name="Ground" type="Sprite2D" parent="." unique_id=1430652367]
 texture_filter = 1
+texture_repeat = 2
 material = SubResource("ShaderMaterial_6y2ht")
 position = Vector2(0, 16)
 texture = ExtResource("1_kp5u5")
