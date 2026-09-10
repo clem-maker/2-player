@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://o6v3vj0nlyud" path="res://scens/player-blau.tscn" id="1_ig7tw"]
 [ext_resource type="Shader" uid="uid://bncji1nbytysc" path="res://shader/main.gdshader" id="2_4gohe"]
 [ext_resource type="PackedScene" uid="uid://clo6wvw17ccfb" path="res://scens/player_rot.tscn" id="3_stwvi"]
+[ext_resource type="PackedScene" uid="uid://mo5twykfrk0f" path="res://scens/ground.tscn" id="4_r0j7t"]
 [ext_resource type="PackedScene" uid="uid://c3mvsfwdyftup" path="res://scens/plattform.tscn" id="5_4gohe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4gohe"]
@@ -36,6 +37,9 @@ anchor_mode = 0
 position = Vector2(640, 722)
 collision_layer = 7
 collision_mask = 7
+
+[node name="ground" parent="barriers/bottom" unique_id=396866080 instance=ExtResource("4_r0j7t")]
+position = Vector2(-640, -2)
 
 [node name="decke" type="StaticBody2D" parent="barriers" unique_id=1505408036]
 collision_layer = 7

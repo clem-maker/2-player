@@ -38,6 +38,10 @@ project/assembly_name="2player"
 
 movie_writer/movie_file="C:/Users/Clemi/Videos/godot/2-player/video_1.png"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godoban/plugin.cfg")
+
 [input]
 
 right={
