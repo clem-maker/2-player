@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://clo6wvw17ccfb"]
 
-[ext_resource type="Script" uid="uid://b645t1u408e52" path="res://scribte/player_rot.gd" id="1_5mur7"]
-[ext_resource type="Texture2D" uid="uid://b1a7ohfwxfvdo" path="res://pixel_art/player_blau.jpg" id="1_usbiq"]
+[ext_resource type="Script" uid="uid://b645t1u408e52" path="res://scribte/player/player_rot.gd" id="1_5mur7"]
+[ext_resource type="Texture2D" uid="uid://b1a7ohfwxfvdo" path="res://pixel_art/player/player_blau.jpg" id="1_usbiq"]
 [ext_resource type="Shader" uid="uid://ke7kn175do61" path="res://shader/player_rot.gdshader" id="1_yj85c"]
 [ext_resource type="Script" uid="uid://dlpc34foaggvv" path="res://scribte/counter.gd" id="4_4qxwf"]
 

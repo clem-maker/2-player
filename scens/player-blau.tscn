@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://o6v3vj0nlyud"]
 
-[ext_resource type="Script" uid="uid://wyfsuk1ljmqw" path="res://scribte/player_blue.gd" id="1_s1jd5"]
+[ext_resource type="Script" uid="uid://wyfsuk1ljmqw" path="res://scribte/player/player_blue.gd" id="1_s1jd5"]
 [ext_resource type="Shader" uid="uid://cbd8m4b64ex37" path="res://shader/player_blau.tres" id="2_txxrp"]
-[ext_resource type="Texture2D" uid="uid://b1a7ohfwxfvdo" path="res://pixel_art/player_blau.jpg" id="3_l23qj"]
-[ext_resource type="Script" uid="uid://c3oeja7kr6wbk" path="res://scribte/is_catched.gd" id="4_txxrp"]
+[ext_resource type="Texture2D" uid="uid://b1a7ohfwxfvdo" path="res://pixel_art/player/player_blau.jpg" id="3_l23qj"]
+[ext_resource type="Script" uid="uid://c3oeja7kr6wbk" path="res://scribte/player/is_catched.gd" id="4_txxrp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ftwe8"]
 radius = 14.0

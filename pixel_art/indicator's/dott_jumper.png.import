@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1a7ohfwxfvdo"
-path="res://.godot/imported/player_blau.jpg-cd7670e4a2eb694bb6a5ea5e4efcdddb.ctex"
+uid="uid://cc58gh77jjlg4"
+path="res://.godot/imported/dott_jumper.png-270327618bcfcdbe7519c969887cf91d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pixel_art/player_blau.jpg"
-dest_files=["res://.godot/imported/player_blau.jpg-cd7670e4a2eb694bb6a5ea5e4efcdddb.ctex"]
+source_file="res://pixel_art/indicator's/dott_jumper.png"
+dest_files=["res://.godot/imported/dott_jumper.png-270327618bcfcdbe7519c969887cf91d.ctex"]
 
 [params]
 

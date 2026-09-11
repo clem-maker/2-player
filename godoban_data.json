@@ -1,18 +1,42 @@
 {
-  "next_id": 2,
+  "next_id": 4,
   "epics": [],
   "tasks": [
     {
       "id": "task_1",
       "title": "add pixel art",
       "description": "",
-      "status": "todo",
+      "status": "in_progress",
       "priority": "high",
       "epic_id": null,
       "due_date": null,
       "tags": [],
       "created_at": 1789058302,
-      "updated_at": 1789058306
+      "updated_at": 1789138646
+    },
+    {
+      "id": "task_2",
+      "title": "ground",
+      "description": "",
+      "status": "in_progress",
+      "priority": "low",
+      "epic_id": null,
+      "due_date": null,
+      "tags": [],
+      "created_at": 1789138635,
+      "updated_at": 1789138743
+    },
+    {
+      "id": "task_3",
+      "title": "add jump_sign",
+      "description": "",
+      "status": "in_progress",
+      "priority": "high",
+      "epic_id": null,
+      "due_date": null,
+      "tags": [],
+      "created_at": 1789138734,
+      "updated_at": 1789138736
     }
   ]
 }
