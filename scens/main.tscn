@@ -4,12 +4,15 @@
 [ext_resource type="Script" uid="uid://o63kosot1f5" path="res://scribte/manager/main.gd" id="1_3ioej"]
 [ext_resource type="PackedScene" uid="uid://o6v3vj0nlyud" path="res://scens/player-blau.tscn" id="1_ig7tw"]
 [ext_resource type="Shader" uid="uid://bncji1nbytysc" path="res://shader/main.gdshader" id="2_4gohe"]
+[ext_resource type="Script" uid="uid://dkwi4r6jlab33" path="res://scens/color_rect.gd" id="3_k4ww0"]
 [ext_resource type="PackedScene" uid="uid://clo6wvw17ccfb" path="res://scens/player_rot.tscn" id="3_stwvi"]
+[ext_resource type="Texture2D" uid="uid://jxcg24rfuq3" path="res://pixel_art/background/wolke.png" id="4_e3kqc"]
 [ext_resource type="PackedScene" uid="uid://mo5twykfrk0f" path="res://scens/ground.tscn" id="4_r0j7t"]
 [ext_resource type="PackedScene" uid="uid://c3mvsfwdyftup" path="res://scens/plattform.tscn" id="5_4gohe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4gohe"]
 shader = ExtResource("2_4gohe")
+shader_parameter/my_color = Vector3(0, 0.6, 0.8)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tpb3x"]
 normal = Vector2(0, 1)
@@ -23,10 +26,17 @@ normal = Vector2(-1, 0)
 [node name="main" type="Node2D" unique_id=430030530]
 script = ExtResource("1_3ioej")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1036334207]
+[node name="background" type="ColorRect" parent="." unique_id=1036334207]
 material = SubResource("ShaderMaterial_4gohe")
 offset_right = 1280.0
 offset_bottom = 720.0
+script = ExtResource("3_k4ww0")
+
+[node name="Wolke" type="Sprite2D" parent="background" unique_id=1582363576]
+texture_filter = 1
+position = Vector2(153, 161)
+scale = Vector2(2, 2)
+texture = ExtResource("4_e3kqc")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1617254573]
 anchor_mode = 0
