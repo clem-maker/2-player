@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dvtbce0hxfi57"]
 
+[ext_resource type="Texture2D" uid="uid://ct7h0scdonnyu" path="res://pixel_art/ui/play_button.png" id="1_lwh5v"]
+
 [node name="ui" type="Control" unique_id=992430856]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +9,28 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=282904619]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.85882354, 0.5803922, 0.5882353, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1847263011]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1834222300]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(1000, 0)
+alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=31419280]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=129236067]
+layout_mode = 2
+texture_normal = ExtResource("1_lwh5v")
+texture_pressed = ExtResource("1_lwh5v")

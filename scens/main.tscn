@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://jxcg24rfuq3" path="res://pixel_art/background/wolke.png" id="4_e3kqc"]
 [ext_resource type="PackedScene" uid="uid://mo5twykfrk0f" path="res://scens/ground.tscn" id="4_r0j7t"]
 [ext_resource type="PackedScene" uid="uid://c3mvsfwdyftup" path="res://scens/plattform.tscn" id="5_4gohe"]
+[ext_resource type="Script" uid="uid://6m4xk2ddo234" path="res://scens/wolke.gd" id="5_77xck"]
+[ext_resource type="PackedScene" uid="uid://dvtbce0hxfi57" path="res://scens/ui.tscn" id="10_o34hl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4gohe"]
 shader = ExtResource("2_4gohe")
@@ -34,9 +36,12 @@ script = ExtResource("3_k4ww0")
 
 [node name="Wolke" type="Sprite2D" parent="background" unique_id=1582363576]
 texture_filter = 1
-position = Vector2(153, 161)
+position = Vector2(150, 160)
 scale = Vector2(2, 2)
 texture = ExtResource("4_e3kqc")
+script = ExtResource("5_77xck")
+start_position = Vector2(-150, 160)
+endposition = Vector2(1500, 160)
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1617254573]
 anchor_mode = 0
@@ -85,3 +90,8 @@ collision_mask = 1
 
 [node name="plattform" parent="." unique_id=1887424092 instance=ExtResource("5_4gohe")]
 position = Vector2(474, 574)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1481040378]
+
+[node name="ui" parent="CanvasLayer" unique_id=992430856 instance=ExtResource("10_o34hl")]
+visible = false
